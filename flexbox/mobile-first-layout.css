@@ -37,6 +37,10 @@ header {
     background-color: #8fb9e8;
     font-size: 14pt;
 }
+
+ul {
+    list-style-type: none;
+}
   
 .lateral-1 {
     background-color: #ed6240;
@@ -63,7 +67,7 @@ footer {
         display: none;
     }
     
-    article span {
+    article h2 span {
         display: none;
     }
     
@@ -75,23 +79,23 @@ footer {
         display: none;
     }
 
-    header::after {
+    header > h1::before {
         content: 'Cabeçalho - Tablet';
     }
 
-    article::after {
+    article > h2 > span::before {
         content: 'Conteúdo Principal - Tablet';
     }
     
-    .lateral-1::after {
+    .lateral-1::before {
         content: 'Lateral 1 - Tablet';
     }
 
-    .lateral-2::after {
+    .lateral-2::before {
         content: 'Lateral 2 - Tablet';
     }
 
-    footer::after {
+    footer::before {
         content: 'Rodapé - Tablet';
     }
 }
@@ -119,23 +123,23 @@ footer {
         order: 4;
     }
 
-    header::after {
+    header > h1::before {
         content: 'Cabeçalho - Desktop'
     }
 
-    article::after {
+    article::before {
         content: 'Conteúdo principal - Desktop';
     }
 
-    .lateral-1::after {
+    .lateral-1::before {
         content: 'Lateral 1 - Desktop';
     }
     
-    .lateral-2::after {
+    .lateral-2::before {
         content: 'Lateral 2 - Desktop';
     }
 
-    footer::after {
+    footer::before {
         content: 'Rodapé - Desktop';
     }
 }
