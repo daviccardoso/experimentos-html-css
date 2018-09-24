@@ -1,0 +1,141 @@
+* {
+    padding: 10px;
+}
+
+body {
+    font-family: 'Tahoma';
+    text-align: center;
+    font-size: 10pt;
+    font-weight: bold;
+    color: #fff;
+}
+  
+/* Define o flex container, configura o main axis como horizontal e
+ * permite que o fluxo seja multilinear.
+ */
+
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    min-width: 320px;
+}
+
+/* Por padrão, todos os flex items podem ser "esticados" na mesma proporção
+ * e ocupar 100% de largura da viewport (Mobile).
+ */
+ 
+.container > * {
+    flex: 1 100%;
+}
+  
+header {
+    background-color: #85fc89;
+    font-size: 18pt;
+}
+
+.principal {
+    background-color: #8fb9e8;
+    font-size: 14pt;
+}
+  
+.lateral-1 {
+    background-color: #ed6240;
+}
+
+.lateral-2 {
+    background-color: #f7b360;
+}
+
+footer {
+    background-color: #6f7c91;
+}
+
+/* Quando a viewport atinge uma largura média (Tablet), as tags aside
+ * passam a compartilhar espaço na mesma linha.
+ */
+
+@media (min-width: 600px) {
+    .lateral {
+        flex: 1 auto;
+    }
+    
+    header span {
+        display: none;
+    }
+    
+    article span {
+        display: none;
+    }
+    
+    .lateral span {
+        display: none;
+    }
+    
+    footer span {
+        display: none;
+    }
+
+    header::after {
+        content: 'Cabeçalho - Tablet';
+    }
+
+    article::after {
+        content: 'Conteúdo Principal - Tablet';
+    }
+    
+    .lateral-1::after {
+        content: 'Lateral 1 - Tablet';
+    }
+
+    .lateral-2::after {
+        content: 'Lateral 2 - Tablet';
+    }
+
+    footer::after {
+        content: 'Rodapé - Tablet';
+    }
+}
+
+/* Ao atingir largura mais ampla, a ordem do primeiro aside e do article
+ * é invertida, bem como o article é configurado para "esticar" em uma proporção
+ * 5 vezes maior do que os asides.
+ */
+
+@media (min-width: 800px) {  
+    .lateral-1 {
+        order: 1;
+    }
+
+    .principal {
+        order: 2;
+        flex: 5 0px;
+    }
+    
+    .lateral-2 {
+        order: 3;
+    }
+    
+    footer {
+        order: 4;
+    }
+
+    header::after {
+        content: 'Cabeçalho - Desktop'
+    }
+
+    article::after {
+        content: 'Conteúdo principal - Desktop';
+    }
+
+    .lateral-1::after {
+        content: 'Lateral 1 - Desktop';
+    }
+    
+    .lateral-2::after {
+        content: 'Lateral 2 - Desktop';
+    }
+
+    footer::after {
+        content: 'Rodapé - Desktop';
+    }
+}
